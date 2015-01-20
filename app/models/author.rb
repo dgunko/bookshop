@@ -3,4 +3,8 @@ class Author < ActiveRecord::Base
   validates_associated :books
 
   validates :first_name, :last_name, presence: true
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

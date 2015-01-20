@@ -1,0 +1,47 @@
+<div id="myCarousel" class="carousel">
+  <!-- Картинки в карусельке -->
+  <div class="carousel-inner row" >
+
+      <%- @category.books.each_with_index do |book, index| %>
+      <%- if index == 0 -%>
+        <div class="item active col-md-12">
+      <%- else %>
+        <div class="item col-md-12">
+      <% end %>
+          <div class="col-md-5"><img src="<%= book.photo.product_view %>" /></div>
+          <div class="col-md-7">
+            <h3><%= link_to book.title, book %></h3>
+            <p class="carousel_description"><strong>Description:</strong> <%= book.description %></p>
+            <p><strong>Author:</strong> <%= book.author.name %></p>
+            <p><strong>Price:</strong> <%= book.price %></p>
+          </div>
+        </div>
+      <%- end %>
+
+  </div>
+  <!-- Навигационные элементы -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+</div>
+
+<div class="container">
+    <div class="row">
+      <%- @categories.each do |category| %>
+      <div class="col-md-12">
+        <h3><%= link_to category.title, category %></h3>
+
+        <%- category.books.each do |book| %>
+        <div class="col-md-4 product-item">
+          <p><%= link_to book.title, book %></p>
+          <p><img src="<%= book.photo.product_view %>" /></p>
+          <p>Price: <%= book.price %></p>
+        </div>
+        <%- end %>
+
+      </div>
+      <%- end %>
+    </div>
+</div>
+
+<script> $('.carousel').carousel() </script> 
+

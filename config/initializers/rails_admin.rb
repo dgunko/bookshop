@@ -38,4 +38,16 @@ RailsAdmin.config do |config|
       config.current_user_method(&:current_admin)
     end
   end
+
+  config.model Author do
+    list do
+      field :name
+      field :first_name do
+        sort_reverse false
+        visible false
+      end
+      sort_by :first_name
+      items_per_page 20
+    end
+  end
 end

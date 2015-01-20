@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20141220191231) do
   end
 
   create_table "books", force: true do |t|
-    t.text     "title"
+    t.string   "title"
     t.text     "description"
     t.integer  "in_stok"
     t.decimal  "price"

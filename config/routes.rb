@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  
-  get 'category/index'
-
-  get 'category/show'
 
   devise_for :admins
+
+  devise_for :users
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :categories
 
-  devise_for :users
+  resources :books
 
-  root to: "category#index"
+  root to: 'categories#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

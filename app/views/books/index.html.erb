@@ -1,0 +1,12 @@
+<h1>Books</h1>
+
+<%- @books.each do |book| %>
+  <!--
+  <%= link_to(@book) do %>
+    <%= book.title %>
+  <% end %>
+  -->
+  <%= link_to book.title, book %>
+  <img src="<%= book.photo.product_view %>" />
+
+<%- end %>
