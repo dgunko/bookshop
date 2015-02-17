@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -26,16 +24,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'rspec-rails', '~> 3.0'
-
-gem 'factory_girl_rails'
-
-gem 'faker'
-
-gem 'database_cleaner'
-
-gem 'shoulda-matchers'
-
 gem 'devise'
 
 gem 'cancancan'
@@ -49,6 +37,24 @@ gem "mini_magick"
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+gem 'simple_form'
+
+group :test, :development do
+  gem 'rspec-rails', '~> 3.0'
+
+  gem 'factory_girl_rails'
+
+  gem 'faker'
+
+  gem 'database_cleaner'
+
+  gem 'shoulda-matchers'
+
+  gem 'capybara'
+
+  gem 'selenium-webdriver', '~> 2.44.0'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

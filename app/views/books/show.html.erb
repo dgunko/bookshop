@@ -1,3 +1,26 @@
-<h1>Book</h1>
-
-<%= @book.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4><%= @book.title %></h4>
+      <div class="col-md-3">
+        <p><img src="<%= @book.photo.product_view %>" ></p>
+      </div>
+      <div class="col-md-8">
+        <p><strong>Description:</strong> <%= @book.description %></p>
+        <p><strong>Author:</strong> <%= link_to "#{@book.author.name}", @book.author %></p>
+        <p><strong>Category:</strong> <%= link_to @book.category.title, @book.category %></p>
+        <p><strong>Price:</strong> <%= @book.price %> $</p>
+        <p><strong>Ratings</strong> <%= link_to 'Add Rating & Review', new_book_rating_path(@book.id) %></p>
+        <p><%= link_to "Back to #{@book.category.title} category", @book.category %></p>
+        <div>
+          <% @ratings.each do |rating| %>
+            <div>
+              <p><%= rating.stars %></p>
+              <p><%= rating.descriprion %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

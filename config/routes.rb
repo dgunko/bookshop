@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :authors
+
+  resources :ratings
+
+  get 'index_page/index'
+
   devise_for :admins
 
   devise_for :users
@@ -8,9 +14,11 @@ Rails.application.routes.draw do
   
   resources :categories
 
-  resources :books
+  resources :books do
+    resources :ratings
+  end
 
-  root to: 'categories#index'
+  root to: 'index_page#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
